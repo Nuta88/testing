@@ -7,7 +7,7 @@ window.onload = function() {
 	Romb.prototype.calculateTheArea = function() {
 		document.write("Area = " + (this.side * this.height) + ";");
 	};
-	// var romb = new Romb(6, 6).calculateTheArea();
+	 var romb = new Romb(6, 6).calculateTheArea();
 
 	function Square(side) {
 		Romb.call(this, side, side);
