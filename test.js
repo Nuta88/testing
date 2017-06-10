@@ -1,41 +1,104 @@
 window.onload = function() {
-
-	function Romb(side, heigt) {
-		this.side = side;
-		this.height = heigt;
-	}
-	Romb.prototype.calculateTheArea = function() {
-		document.write("Area = " + (this.side * this.height) + ";");
+	document.getElementById("button").onclick = function() {
+		var inputString = document.getElementById("textarea").value;
+		var elementOfHtml = document.getElementById("write");
+		var convertTheStringIntoAnArray = inputString.split(" ");
+		var getFinishString = start(convertTheStringIntoAnArray);
+		
+			function start(elementsOfErray) {
+			var arrayOfStrings = [];
+			for ( var i = 0; i < elementsOfErray.length; i++) {
+				var arrayOfElements = getArrayOfElements(elementsOfErray[i]);
+				arrayOfStrings.push(reverseElementsInArray(arrayOfElements));
+			}
+			return convertTheArrayToString(arrayOfStrings, " ");
+		};		
+		
+		addStringToHtml(elementOfHtml,getFinishString);
 	};
-	 new Romb(6, 6).calculateTheArea();
 
-	function Square(side) {
-		Romb.call(this, side, side);
+	function getArrayOfElements(string) {
+		var anArrayOfElements = [];
+		for ( var i = 0; i < string.length; i++) {
+			anArrayOfElements[i] = string[i];
+		}
+		return anArrayOfElements;
 	}
-	Square.prototype = new Romb;
 
-	// var square = new Square(7).calculateTheArea();
+	function reverseElementsInArray(alphabetArray) {
+		var i = 0;
+		var j = alphabetArray.length - 1;
+		while (i < j) {
+		
+			if (isNotLetterElement(alphabetArray[i])) {
+				i++;
+				continue;
+			}
+			if (isNotLetterElement(alphabetArray[j])) {
+				j--;
+				continue;
+			}
 
-	function Rectangle(side, heigt) {
-		Romb.call(this, side, heigt);
+			swapElements(alphabetArray, i, j);
+			i++;
+			j--;
+		}
+		return convertTheArrayToString(alphabetArray, "");
 	}
-	Rectangle.prototype = new Romb;
-	// var rectangle = new Rectangle(8, 8).calculateTheArea();
 
-	function Parallelogram(side, heigt) {
-		Romb.call(this, side, heigt);
+	function swapElements(alphabetArray, firstElementIndex, secondElementIndex) {
+		var temp = alphabetArray[firstElementIndex];
+		alphabetArray[firstElementIndex] = alphabetArray[secondElementIndex];
+		alphabetArray[secondElementIndex] = temp;
 	}
-	Parallelogram.prototype = new Romb;
-	// var parallelogram = new Parallelogram (4, 8).calculateTheArea();
 
-	function Trapezium(sideOne, sideTwo, heigt) {
-		this.sideTwo = sideTwo;
-		Romb.call(this, sideOne, heigt);
+	function isNotLetterElement(element) {
+		if (!((("a" <= element) && (element <= "z"))
+				|| (("A" <= element) && (element <= "Z")))) {
+			return true;
+		}
+		return false;
 	}
-	Trapezium.prototype.calculateTheArea = function() {
-		document.write("Area = " + (this.side + this.sideTwo) * 0.5
-				* this.height + ";");
-	};
-	var trapezium = new Trapezium(5, 8, 7);
-	trapezium.calculateTheArea();
+
+	function convertTheArrayToString(elements, splitStrind) {
+		return elements.join(splitStrind);
+	}
+
+	function addStringToHtml(elementOfHtml, string) {
+		elementOfHtml.innerHTML = string;
+	}
+
+
+
+	// Testing my function
+
+	// document.write(anArrayOfElements);
+
+	// testForReversElements();
+	//
+	// function testForReversElements() {
+	// var input = "abcd";
+	// var expected = ["d","c","b","a"];
+	// var arrayOfInput = getArrayOfLetters(input);
+	//		
+	// reverseElementsInArray(arrayOfInput);
+	// if (arrayOfInput.toString() === expected.toString()) {
+	// document.write("test successesful");
+	// } else {
+	// document.write("test is not successesful <br>");
+	// }
+	// }
+
+	// testForReversElementOnlyLetters();
+	// function testForReversElementOnlyLetters() {
+	// var arrayOfInput = [ "a", "b", "c", "2", "d" ];
+	// var expected = [ "d", "c", "b", "2", "a" ];
+	// reverseElementsInArray(arrayOfInput);
+	// if (arrayOfInput.toString() === expected.toString()) {
+	// document.write("function is good <br>");
+	// } else {
+	// document.write("function is bad <br>");
+	// }
+	// }
+
 };
