@@ -70,35 +70,5 @@ window.onload = function() {
 
 
 
-	// Testing my function
-
-	// document.write(anArrayOfElements);
-
-	// testForReversElements();
-	//
-	// function testForReversElements() {
-	// var input = "abcd";
-	// var expected = ["d","c","b","a"];
-	// var arrayOfInput = getArrayOfLetters(input);
-	//		
-	// reverseElementsInArray(arrayOfInput);
-	// if (arrayOfInput.toString() === expected.toString()) {
-	// document.write("test successesful");
-	// } else {
-	// document.write("test is not successesful <br>");
-	// }
-	// }
-
-	// testForReversElementOnlyLetters();
-	// function testForReversElementOnlyLetters() {
-	// var arrayOfInput = [ "a", "b", "c", "2", "d" ];
-	// var expected = [ "d", "c", "b", "2", "a" ];
-	// reverseElementsInArray(arrayOfInput);
-	// if (arrayOfInput.toString() === expected.toString()) {
-	// document.write("function is good <br>");
-	// } else {
-	// document.write("function is bad <br>");
-	// }
-	// }
 
 };
