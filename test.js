@@ -4,22 +4,22 @@ window.onload = function() {
 		var elementOfHtml = document.getElementById("write");
 		var convertTheStringIntoAnArray = inputString.split(" ");
 		var getFinishString = start(convertTheStringIntoAnArray);
-		
-			function start(elementsOfErray) {
+
+		function start(elementsOfErray) {
 			var arrayOfStrings = [];
-			for ( var i = 0; i < elementsOfErray.length; i++) {
+			for (var i = 0; i < elementsOfErray.length; i++) {
 				var arrayOfElements = getArrayOfElements(elementsOfErray[i]);
 				arrayOfStrings.push(reverseElementsInArray(arrayOfElements));
 			}
 			return convertTheArrayToString(arrayOfStrings, " ");
-		};		
-		
-		addStringToHtml(elementOfHtml,getFinishString);
+		}
+
+		addStringToHtml(elementOfHtml, getFinishString);
 	};
 
 	function getArrayOfElements(string) {
 		var anArrayOfElements = [];
-		for ( var i = 0; i < string.length; i++) {
+		for (var i = 0; i < string.length; i++) {
 			anArrayOfElements[i] = string[i];
 		}
 		return anArrayOfElements;
@@ -29,7 +29,7 @@ window.onload = function() {
 		var i = 0;
 		var j = alphabetArray.length - 1;
 		while (i < j) {
-		
+
 			if (isNotLetterElement(alphabetArray[i])) {
 				i++;
 				continue;
@@ -53,10 +53,10 @@ window.onload = function() {
 	}
 
 	function isNotLetterElement(element) {
-		if (!((("a" <= element) && (element <= "z"))
-				|| (("A" <= element) && (element <= "Z")))) {
+		if (element.search(/[a-zA-Z]+/i ) === -1) {
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -67,8 +67,5 @@ window.onload = function() {
 	function addStringToHtml(elementOfHtml, string) {
 		elementOfHtml.innerHTML = string;
 	}
-
-
-
 
 };
