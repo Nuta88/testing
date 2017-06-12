@@ -5,10 +5,10 @@ window.onload = function() {
 		var convertTheStringIntoAnArray = inputString.split(" ");
 		var getFinishString = start(convertTheStringIntoAnArray);
 
-		function start(elementsOfErray) {
+		function start(elementsOfArray) {
 			var arrayOfStrings = [];
-			for (var i = 0; i < elementsOfErray.length; i++) {
-				var arrayOfElements = getArrayOfElements(elementsOfErray[i]);
+			for (var i = 0; i < elementsOfArray.length; i++) {
+				var arrayOfElements = getArrayOfElements(elementsOfArray[i]);
 				arrayOfStrings.push(reverseElementsInArray(arrayOfElements));
 			}
 			return convertTheArrayToString(arrayOfStrings, " ");
@@ -66,6 +66,18 @@ window.onload = function() {
 
 	function addStringToHtml(elementOfHtml, string) {
 		elementOfHtml.innerHTML = string;
+		
+	}
+	
+//	testing function
+//	testIsNotLetter();
+	function testIsNotLetter() {
+		var input = "4";
+		if(isNotLetterElement(input)) {
+			document.write("function is good");
+		} else {
+			document.write("fanction is bad");
+		}
 	}
 
 };
