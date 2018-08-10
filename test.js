@@ -4,22 +4,22 @@ window.onload = function() {
 		var elementOfHtml = document.getElementById("write");
 		var convertTheStringIntoAnArray = inputString.split(" ");
 		var getFinishString = start(convertTheStringIntoAnArray);
-		
-			function start(elementsOfErray) {
+
+		function start(elementsOfArray) {
 			var arrayOfStrings = [];
-			for ( var i = 0; i < elementsOfErray.length; i++) {
-				var arrayOfElements = getArrayOfElements(elementsOfErray[i]);
+			for (var i = 0; i < elementsOfArray.length; i++) {
+				var arrayOfElements = getArrayOfElements(elementsOfArray[i]);
 				arrayOfStrings.push(reverseElementsInArray(arrayOfElements));
 			}
 			return convertTheArrayToString(arrayOfStrings, " ");
-		};		
-		
-		addStringToHtml(elementOfHtml,getFinishString);
+		}
+
+		addStringToHtml(elementOfHtml, getFinishString);
 	};
 
 	function getArrayOfElements(string) {
 		var anArrayOfElements = [];
-		for ( var i = 0; i < string.length; i++) {
+		for (var i = 0; i < string.length; i++) {
 			anArrayOfElements[i] = string[i];
 		}
 		return anArrayOfElements;
@@ -29,7 +29,7 @@ window.onload = function() {
 		var i = 0;
 		var j = alphabetArray.length - 1;
 		while (i < j) {
-		
+
 			if (isNotLetterElement(alphabetArray[i])) {
 				i++;
 				continue;
@@ -53,10 +53,10 @@ window.onload = function() {
 	}
 
 	function isNotLetterElement(element) {
-		if (!((("a" <= element) && (element <= "z"))
-				|| (("A" <= element) && (element <= "Z")))) {
+		if (element.search(/[a-zA-Z]+/i ) === -1) {
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -66,39 +66,19 @@ window.onload = function() {
 
 	function addStringToHtml(elementOfHtml, string) {
 		elementOfHtml.innerHTML = string;
+		
 	}
-
-
-
-	// Testing my function
-
-	// document.write(anArrayOfElements);
-
-	// testForReversElements();
-	//
-	// function testForReversElements() {
-	// var input = "abcd";
-	// var expected = ["d","c","b","a"];
-	// var arrayOfInput = getArrayOfLetters(input);
-	//		
-	// reverseElementsInArray(arrayOfInput);
-	// if (arrayOfInput.toString() === expected.toString()) {
-	// document.write("test successesful");
-	// } else {
-	// document.write("test is not successesful <br>");
-	// }
-	// }
-
-	// testForReversElementOnlyLetters();
-	// function testForReversElementOnlyLetters() {
-	// var arrayOfInput = [ "a", "b", "c", "2", "d" ];
-	// var expected = [ "d", "c", "b", "2", "a" ];
-	// reverseElementsInArray(arrayOfInput);
-	// if (arrayOfInput.toString() === expected.toString()) {
-	// document.write("function is good <br>");
-	// } else {
-	// document.write("function is bad <br>");
-	// }
-	// }
+	
+	
+//	testing function
+//	testIsNotLetter();
+	function testIsNotLetter() {
+		var input = "4";
+		if(isNotLetterElement(input)) {
+			document.write("function is good");
+		} else {
+			document.write("fanction is bad");
+		}
+	}
 
 };
