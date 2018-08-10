@@ -69,6 +69,7 @@ window.onload = function() {
 		
 	}
 	
+	
 //	testing function
 //	testIsNotLetter();
 	function testIsNotLetter() {
