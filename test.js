@@ -69,9 +69,7 @@ window.onload = function() {
 		
 	}
 	
-	
-//	testing function
-//	testIsNotLetter();
+
 	function testIsNotLetter() {
 		var input = "4";
 		if(isNotLetterElement(input)) {
