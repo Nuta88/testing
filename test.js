@@ -68,7 +68,6 @@ window.onload = function() {
 		elementOfHtml.innerHTML = string;
 		
 	}
-	
 
 	function testIsNotLetter() {
 		var input = "4";
